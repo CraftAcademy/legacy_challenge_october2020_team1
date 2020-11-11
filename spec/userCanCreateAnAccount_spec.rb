@@ -1,25 +1,29 @@
 feature 'User can create an account' do   
 
   context "Successfully create an account [Happy Path]" do
-  before do
-    visit root_path
-    click_on 'Sign up'
-    # create(:user, name: 'user')
-    # create(:user, email: 'user@test.com')
-    # create(:user, password )
-    # create(:user, )
-    fill_in "Name", with: "user"
-    fill_in "Email", with: "user@test.com"
-    fill_in "Password", with: "12345678"
-    fill_in "Password confirmation", with: "12345678"
-    click_on "Create"
-  end
+    before do
+      visit root_path
+      click_on 'Sign up'
+    end
 
   it 'User should see success message' do
-    expect(page).to have_content 'Welcome! You have signed up successfully.'
+    fill_in 'new_name', with: 'user712'
+    fill_in 'new_email', with: 'user712@test.com'
+    fill_in 'new_password', with: '12345678'
+    fill_in 'new_password_confirmation', with: '12345678'
+    click_on 'Create'
+    expect(page).to have_content "Welcome! You have signed up successfully."
   end
+
 end
 end
+
+ 
+  # let(:user) { FactoryBot.create(:user) }
+  # before do
+  # visit root_path
+  # click_on 'Sign up'
+  # end
 
   # it 'User should be on home page' do
   #   article = Article.find_by(title: 'Happy holidays')
