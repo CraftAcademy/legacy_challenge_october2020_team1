@@ -17,6 +17,9 @@ feature 'User can login' do
       expect(current_path).to eq root_path
     end
 
+    it 'user can see a success message' do
+      expect(page).to have_content "Signed in successfully."
+    end
 
   end
 end
