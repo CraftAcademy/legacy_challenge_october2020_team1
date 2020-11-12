@@ -14,4 +14,9 @@ feature 'User can logout' do
   it 'user can see a success message after logout' do
     expect(page).to have_content "Signed out successfully."
   end
+
+  it 'user can not see their name on the nav bar anymore' do
+      expect(page).not_to have_content user.name 
+  end
+
 end
