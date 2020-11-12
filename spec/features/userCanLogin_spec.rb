@@ -21,5 +21,8 @@ feature 'User can login' do
       expect(page).to have_content "Signed in successfully."
     end
 
+    it 'user can see their name on the nav bar' do
+      expect(page).to have_content user.name
+    end
   end
 end
