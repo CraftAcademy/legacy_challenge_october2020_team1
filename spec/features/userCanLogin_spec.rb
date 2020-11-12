@@ -25,4 +25,16 @@ feature 'User can login' do
       expect(page).to have_content user.name
     end
   end
+
+  context 'sadpath: user types a wrong email address' do
+    before do
+      fill_in "Email", with: 'user123.email'
+      fill_in "Password", with: user.password
+      click_on "Log in"
+    end
+
+    it 'User should see an error message' do
+      expect(page).to have_content 'Invalid Email or password.'
+    end  
+  end
 end
