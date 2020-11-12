@@ -23,6 +23,5 @@ feature 'User can' do
     it 'User should see successful message' do
       expect(page).to have_content "Your message was successfully sent!"
     end
-    
   end
 end
