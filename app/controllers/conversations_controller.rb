@@ -7,12 +7,13 @@ class ConversationsController < ApplicationController
   def create
     recipients = User.where(id: conversation_params[:recipients])
     conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
+    
     if recipients && conversation
-    redirect_to conversation_path(conversation)
-    flash[:success] = 'Your message was successfully sent!'
+      redirect_to conversation_path(conversation)
+      flash[:success] = 'Your message was successfully sent!'
     else
-    redirect_to new_conversation_path
-    flash[:notice] = "There was an error, your message was not sent!"
+      redirect_to new_conversation_path
+      flash[:notice] = "There was an error, your message was not sent!"
     end
   end
 

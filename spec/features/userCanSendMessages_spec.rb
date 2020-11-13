@@ -32,7 +32,6 @@ feature 'User can' do
       click_on "Send Message" 
     end
 
-
     it 'User should see error message' do
       expect(page).to have_content "There was an error, your message was not sent!"
     end
