@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 feature 'User can see list of recived messages' do
   let(:sender) {FactoryBot.create(:user, name: 'sender', email: 'hellosender@abc.com')}
   let(:receiver) {FactoryBot.create(:user)}
@@ -18,5 +16,4 @@ feature 'User can see list of recived messages' do
   it 'Happypath user can see a recived message' do
     expect(page).to have_content 'some example'
   end
-
 end
